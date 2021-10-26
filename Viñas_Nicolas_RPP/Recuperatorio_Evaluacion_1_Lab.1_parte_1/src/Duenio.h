@@ -17,9 +17,38 @@ struct{
 
 }typedef Duenio;
 
-int modificarDuenio(Duenio* DuenioModificar,int listado);
 
-void mostrarDuenio(Duenio* DuenioListado,int tam);
+
+/// @fn void mostrarDuenios(Duenio*, int)
+/// @brief muestra todos los duenios
+///
+/// @param DuenioListado
+/// @param tam
+void mostrarDuenios(Duenio* DuenioListado,int tam);
+
+/// @fn void mostrarDuenio(Duenio*, int)
+/// @brief muestra un solo duenio
+///
+/// @param DuenioListado
+/// @param i
+void mostrarDuenio(Duenio* DuenioListado,int i);
+
+/// @fn int menuModificarDuenio(Duenio*, int)
+/// @brief permite modificar una o varias partes del duenio elejido por ID en un menu.
+///
+/// @param DuenioListado
+/// @param listado
+/// @return
+int menuModificarDuenio(Duenio* DuenioListado,int listado);
+
+/// @fn int buscarDuenioID(Duenio*, int, int)
+/// @brief busca la ID ingresada y devuelve la posicion en la lista del ID.
+///
+/// @param DuenioEstructura
+/// @param tam
+/// @param ID
+/// @return
+int buscarDuenioID(Duenio* DuenioEstructura,int tam,int ID);
 
 
 #endif /* DUENIO_H_ */

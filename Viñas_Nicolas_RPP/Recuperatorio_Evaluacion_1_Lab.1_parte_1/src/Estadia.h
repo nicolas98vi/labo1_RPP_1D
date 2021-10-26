@@ -27,15 +27,27 @@ int isEmpty;
 /// @return
 int initEmployees(EstadiaDiaria* list, int len);
 
-/// @fn int ingresarDatosDiarios(EstadiaDiaria*, int)
-/// @brief Da a ingresar los datos de una estadia
+
+
+
+
+/// @fn int producto_buscarEspacioLibre(EstadiaDiaria[], int)
+/// @brief busca un isEmpty que este VACIO
 ///
-/// @param ingresoDeTiempo
-/// @param lista
+/// @param Estadia
+/// @param tam
 /// @return
+int producto_buscarEspacioLibre(EstadiaDiaria Estadia[], int tam);
 
-int ingresarDatosDiarios(EstadiaDiaria* ingresoDeTiempo,int tamanio,int lista);
 
+/// @fn int buscarEstadiaID(EstadiaDiaria*, int, int)
+/// @brief busca la ID ingresada y devuelve la posicion en la lista del ID.
+///
+/// @param estadia
+/// @param tam
+/// @param ID
+/// @return
+int buscarEstadiaID(EstadiaDiaria* estadia,int tam,int ID);
 
 
 /// @fn int bajaLogica(EstadiaDiaria*, int)
@@ -51,8 +63,14 @@ int bajaLogica(EstadiaDiaria* ingresoDeTiempo,int tamanio);
 ///
 /// @param ingresoDeTiempo
 /// @param tamanio
-void mostrarEstadia(EstadiaDiaria* ingresoDeTiempo,int tamanio);
+void mostrarEstadias(EstadiaDiaria* ingresoDeTiempo,int tamanio);
 
+/// @fn void mostrarEstadia(EstadiaDiaria*, int)
+/// @brief muestra una estadia ingresada
+///
+/// @param ingresoDeTiempo
+/// @param i
+void mostrarEstadia(EstadiaDiaria* ingresoDeTiempo,int i);
 
 
 #endif /* ESTADIA_H_ */

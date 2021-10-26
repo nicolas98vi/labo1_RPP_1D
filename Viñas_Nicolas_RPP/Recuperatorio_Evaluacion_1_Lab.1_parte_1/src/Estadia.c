@@ -13,60 +13,72 @@ int initEmployees(EstadiaDiaria* list, int len)
 	return retorno;
 }
 
-int ingresarDatosDiarios(EstadiaDiaria* ingresoDeTiempo,int tamanio,int lista){
-	int retorno;
-	retorno=0;
 
-	ingresoDeTiempo[lista].id=lista;
+int producto_buscarEspacioLibre(EstadiaDiaria Estadia[], int tam)
+{
+	int i;
+	int index = -1;
 
-	initChar(ingresoDeTiempo[lista].nombreDuenio,"Ingrese el nombre del duenio: ");
+	for(i=0; i<tam; i++)
+	{
+		if(Estadia[i].isEmpty == VACIO)
+		{
+			index = i;
+			break;
+		}
+	}
 
-	do{
-		initInt(&ingresoDeTiempo[lista].telefonoContacto,"Ingrese el telefono del dueño: ");
-	}while(ingresoDeTiempo[lista].telefonoContacto<=40000000);
-
-	initInt(&ingresoDeTiempo[lista].idPerro,"Ingrese el ID del perrito: ");
-
-	do{
-		initInt(&ingresoDeTiempo[lista].fecha,"Ingrese la fecha: ");
-	}while(ingresoDeTiempo[lista].fecha<=0);
-
-
-	retorno=1;
-
-	return retorno;
+	return index;
 }
 
-int bajaLogica(EstadiaDiaria* ingresoDeTiempo,int tamanio){
+
+
+int bajaLogica(EstadiaDiaria* ingresoEstadia,int tamanio){
 	int retorno;
 	retorno=0;
-	int listado;
 	int i;
-	int pregunta;
-	initInt(&listado,"Ingrese el ID a dar de baja: ");
+	int id;
 
-	for(i=100000;i<100000+tamanio;i++){
-		if(ingresoDeTiempo[i].id==listado && ingresoDeTiempo[i].isEmpty==LLENO){
-			retorno=-1;
-			do{
-				initInt(&pregunta,"Seguro que quiere borrarlo? (1.si/2-no)");
-			}while(pregunta!=1 && pregunta != 2);
+	pedirEntero(&id,"Ingrese el ID a dar de baja: ", "ERROR AL INGRESAR ID", 100000, 100101);
 
-			if(pregunta==1){
-				ingresoDeTiempo[i].isEmpty=VACIO;
+	for(i=1;i<tamanio;i++){
+
+		if(id==ingresoEstadia[i].id && ingresoEstadia[i].isEmpty==LLENO){
+			if(!producto_verificarConfirmacion("\nIngrese 's' para confirmar la baja de la estadia: ")){
 				retorno=1;
+				ingresoEstadia[i].isEmpty=VACIO;
+			}else{
+				retorno=-1;
 			}
 		}
 	}
+	mostrarEstadias(ingresoEstadia, tamanio);
 	return retorno;
 }
 
-void mostrarEstadia(EstadiaDiaria* ingresoDeTiempo,int tamanio){
+void mostrarEstadias(EstadiaDiaria* ingresoDeEstadia,int tamanio){
 	int i;
-	printf("    Nombre del dueño           Telefono         Fecha\n");
-	for(i=100000;i<100000+tamanio;i++){
-		printf("%6s %6d %8d\n",ingresoDeTiempo[i].nombreDuenio,ingresoDeTiempo[i].telefonoContacto,ingresoDeTiempo[i].fecha);
+	printf("  ID     Nombre del dueño           Telefono            Fecha\n");
+	for(i=1;i<tamanio;i++){
+		if(ingresoDeEstadia[i].isEmpty==LLENO){
+			mostrarEstadia(ingresoDeEstadia, i);
+		}
 	}
 }
 
+void mostrarEstadia(EstadiaDiaria* ingresoDeEstadia,int i){
+	printf("%d %12s %24d %16d\n",ingresoDeEstadia[i].id,ingresoDeEstadia[i].nombreDuenio,ingresoDeEstadia[i].telefonoContacto,ingresoDeEstadia[i].fecha);
+}
 
+
+int buscarEstadiaID(EstadiaDiaria* estadia,int tam,int ID){
+	int i;
+	int listado;
+	for(i=0;i<tam;i++){
+		if(estadia[i].id==ID){
+			listado=i;
+		    break;
+		}
+	}
+	return listado;
+}

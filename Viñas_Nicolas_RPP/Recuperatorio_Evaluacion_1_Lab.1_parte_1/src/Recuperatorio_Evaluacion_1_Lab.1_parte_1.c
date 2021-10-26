@@ -14,19 +14,20 @@
 int main(void) {
 	setbuf(stdout, NULL);
 	ePerro arrayPerritos[TAMPerrito]={{7000, "lobo", "Sharpei", 2},{7001, "Sheila", "Golden", 12},{7002, "Reina", "Galgo", 13}};
-	EstadiaDiaria arrayFechas[TAM];
+	EstadiaDiaria arrayEstadia[TAM];
 	Duenio arrayDuenio[tamDuenio]={{3000, "Jose",47373732},{3001, "Luis",47372732},{3002, "Esteban",47322732},{3003, "Josefa",47313232},{3004, "Lusia", 41213232}};
 	int opcion;
-	int cantidadFechas;
-	cantidadFechas=100000;
+	int cantidadEstadias;
+	cantidadEstadias=1;
+	int IDEstadias;
+	IDEstadias=100000;
     int retorno;
-    retorno=initEmployees(arrayFechas, TAM);
+    retorno=initEmployees(arrayEstadia, TAM);
     mostrar(retorno," ","ERROR AL INICIALIZAR","Exito al inizialisar");
 
 	do
 	{
-
-		initInt(&opcion,"-------------------------------------\n"
+		pedirEntero(&opcion,"-------------------------------------\n"
 				 "1. RESERVAR ESTADIA\n"
 				 "2. MODIFICAR ESTADIA\n"
 				 "3. CANCELAR ESTADÍA\n"
@@ -37,42 +38,55 @@ int main(void) {
 				 "8. Listado de perros con sus estadías diarias reservadas\n"
 				 "9. Salir\n"
 				 "-------------------------------------\n"
-				 "Ingrese una opcion: ");
-		while(opcion<=0 || opcion>=9){
-			initInt(&opcion,"-------------------------------------\n"
-					"ERROR AL INGRESAR NUMERO"
-					"1. RESERVAR ESTADIA\n"
-					"2. MODIFICAR ESTADIA\n"
-					"3. CANCELAR ESTADÍA\n"
-					"4. LISTAR ESTADÍAS\n"
-				    "5. LISTAR PERROS\n"
-				    "6. Promedio de edad de los perros\n"
-					"7. El perro que tiene más estadías reservadas\n"
-					"8. Listado de perros con sus estadías diarias reservadas\n"
-					"9. Salir\n"
-					"-------------------------------------\n"
-					"Ingrese una opcion valida: ");
-		}
+				 "Ingrese una opcion: ", "ERROR AL INGRESAR NUMERO\n"
+				 "-------------------------------------\n"
+				 				 "1. RESERVAR ESTADIA\n"
+				 				 "2. MODIFICAR ESTADIA\n"
+				 				 "3. CANCELAR ESTADÍA\n"
+				 				 "4. LISTAR ESTADÍAS\n"
+				 				 "5. LISTAR PERROS\n"
+				 	             "6. Promedio de edad de los perros\n"
+				 	             "7. El perro que tiene más estadías reservadas\n"
+				 				 "8. Listado de perros con sus estadías diarias reservadas\n"
+				 				 "9. Salir\n"
+				 				 "-------------------------------------\n"
+				 				 "Ingrese una opcion: ", 0, 9);
+
 		switch(opcion)
 		{
 		   case 1:
-			   cantidadFechas++;
-			   mostrarSolo("Ingresar datos del ingreso----------------------------------------------\n");
-			   retorno=ingresarDatosDiarios(arrayFechas,TAM,cantidadFechas);
-			   mostrar(retorno," ","ERROR AL INGREZAR DATOS","Exito al ingrezar datos de estadia!!!");
+
+			   retorno=Estadia_agregarEstadia(arrayPerritos,arrayEstadia,arrayDuenio,cantidadEstadias,TAMPerrito,tamDuenio,IDEstadias);
+			   if(retorno==1){
+				   cantidadEstadias++;
+				   IDEstadias++;
+			   }
+			   	mostrar(retorno,"ERROR AL INGRESAR ESTADIA","Ingreso de estadia canselada","Exito al ingresar Estadia!!!");
 			   system("pause");
 			break;
 			case 2:
-				subMenuModificar(arrayPerritos,arrayFechas,arrayDuenio,TAM,TAMPerrito,tamDuenio);
+				if(cantidadEstadias>1){
+					subMenuModificar(arrayPerritos,arrayEstadia,arrayDuenio,TAM,TAMPerrito,tamDuenio);
+				}else{
+					printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 3:
-				bajaLogica(arrayFechas,TAM);
-				mostrar(retorno,"Baja canselada","ERROR AL DAR DE BAJA","Exito al dar de baja!!!");
+				if(cantidadEstadias>1){
+					retorno=bajaLogica(arrayEstadia,cantidadEstadias);
+				    mostrar(retorno,"Baja canselada","ERROR AL DAR DE BAJA","Exito al dar de baja!!!");
+				}else{
+					printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 4:
-				mostrarEstadia(arrayFechas,TAM);
+				if(cantidadEstadias>1){
+					mostrarEstadias(arrayEstadia,TAM);
+				}else{
+					printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 5:
@@ -84,15 +98,23 @@ int main(void) {
 				system("pause");
 				break;
 			case 7:
-				mayorEstadiaDePerro(arrayPerritos,arrayFechas,TAM,TAMPerrito);
+				if(cantidadEstadias>1){
+					mayorEstadiaDePerro(arrayPerritos,arrayEstadia,cantidadEstadias,TAMPerrito);
+				}else{
+					printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 8:
-				listadoDePerroEstadia(arrayPerritos,arrayFechas,TAM,TAMPerrito);
+				if(cantidadEstadias>1){
+					listadoDePerroEstadia(arrayPerritos,arrayEstadia,cantidadEstadias,TAMPerrito);
+				}else{
+					printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 9:
-				mostrarSolo("Salio del menu!!!\n");
+				printfSolo("Salio del menu!!!\n");
 				system("pause");
 				break;
 		}

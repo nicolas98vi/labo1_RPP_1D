@@ -22,7 +22,7 @@ int edad;
 /// @param perritoModificar
 /// @param listado
 /// @return
-int modificarPerrito(ePerro* perritoModificar,int listado);
+int menuModificarPerrito(ePerro* perritoModificar,int listado);
 
 
 /// @fn void mostrarPerritos(ePerro*, int)
@@ -33,6 +33,14 @@ int modificarPerrito(ePerro* perritoModificar,int listado);
 void mostrarPerritos(ePerro* perritos,int tam);
 
 
+/// @fn void mostrarPerrito(ePerro*, int)
+/// @brief busca la ID ingresada y devuelve la posicion en la lista del ID.
+///
+/// @param perritos
+/// @param i
+void mostrarPerrito(ePerro* perritos,int i);
+
+
 /// @fn void promedioEdadPerritos(ePerro*, int)
 /// @brief suma las edades de los perros y da el promedio
 ///
@@ -40,5 +48,13 @@ void mostrarPerritos(ePerro* perritos,int tam);
 /// @param tam
 void promedioEdadPerritos(ePerro* perritos,int tam);
 
+/// @fn int buscarPerritoID(ePerro*, int, int)
+/// @brief
+///
+/// @param perritos
+/// @param tam
+/// @param ID
+/// @return
+int buscarPerritoID(ePerro* perritos,int tam,int ID);
 
 #endif /* PERRITOS_H_ */

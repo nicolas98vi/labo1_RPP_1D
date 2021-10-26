@@ -14,20 +14,40 @@
 #define LLENO 1
 #define VACIO 0
 
-
-/// @fn void initInt(int*, char*)
-/// @brief Deja ingresar un int
+/// @fn void pedirEntero(int*, char*, char*, int, int)
+/// @brief Te permite ingresar un entero que si ingresas mas del maximo y menos del minimo te salara el mensaje de error.
 ///
-/// @param numero
+/// @param entero
 /// @param mensaje
-void initInt(int* numero,char* mensaje);
+/// @param mensajeError
+/// @param min
+/// @param max
+void pedirEntero(int* entero, char* mensaje, char* mensajeError, int min, int max);
 
-/// @fn void initChar(char*, char*)
-/// @brief Deja ingresar un char
+/// @fn void pedirCaracter(char*, char*)
+/// @brief te permite ingresar un caracter.
 ///
-/// @param palabra
+/// @param caracter
 /// @param mensaje
-void initChar(char* palabra,char* mensaje);
+void pedirCaracter(char* caracter, char* mensaje);
+
+
+/// @fn void pedirCadena(char*, char*, char*, int)
+/// @brief te deja ingresar una cadena de caracteres pero si es mayor que el maximo que almacena te mostrara el mensaje de error
+///
+/// @param cadena
+/// @param mensaje
+/// @param mensajeError
+/// @param max
+void pedirCadena(char* cadena, char* mensaje, char* mensajeError, int max);
+
+
+/// @fn int producto_verificarConfirmacion(char*)
+/// @brief pide que preciones "s" en el mensaje paradar a entender que estas de acuerdo.
+///
+/// @param mensaje
+/// @return
+int producto_verificarConfirmacion(char* mensaje);
 
 
 /// @fn void mostrar(int, char*, char*, char*)
@@ -43,7 +63,7 @@ void mostrar(int opcion,char* mesajeUno,char* mesajeDos,char* mesajeTres);
 /// @brief Tiene un printf que muestra
 ///
 /// @param mensaje
-void mostrarSolo(char* mensaje);
+void printfSolo(char* mensaje);
 
 
 #endif /* BIBLIOTECA_H_ */
