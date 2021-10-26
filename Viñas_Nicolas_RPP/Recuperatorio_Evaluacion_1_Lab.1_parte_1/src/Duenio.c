@@ -27,7 +27,7 @@ int menuModificarDuenio(Duenio* DuenioListado,int listado){
 					 "-------------------------------------\n"
 					 					 "1. MODIFICAR NOMBRE\n"
 					 					 "2. MODIFICAR TELEFONO\n"
-					 					 "4. SALIR\n"
+					 					 "3. SALIR\n"
 					 					 "-------------------------------------\n"
 					 					 "Ingrese una opcion: ", 0, 4);
 			switch(opciones){

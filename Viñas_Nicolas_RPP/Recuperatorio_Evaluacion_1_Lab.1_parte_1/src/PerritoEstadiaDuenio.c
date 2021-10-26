@@ -170,9 +170,8 @@ void  subMenuModificar(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioEst
 			mostrarDuenios(DuenioEstructura,TamanioDuenios);
 			pedirEntero(&listado,"Ingrese la ID del duenio: ", "ERROR AL INGRESAR LA ID", 2999, 3005);
 			listadoEncontrado=buscarDuenioID(DuenioEstructura,TamanioDuenios,listado);
-			retorno=menuModificarDuenio(DuenioEstructura, listado);
+			retorno=menuModificarDuenio(DuenioEstructura, listadoEncontrado);
 			mostrar(retorno,"","CAMBIAR DUENIO CANCELADO","Exito al cambiar dueño");
-			mostrarDuenio(DuenioEstructura,TamanioDuenios);
 
 			break;
 		case 4:
