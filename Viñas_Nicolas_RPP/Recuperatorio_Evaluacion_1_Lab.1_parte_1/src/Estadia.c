@@ -67,7 +67,7 @@ void mostrarEstadias(EstadiaDiaria* ingresoDeEstadia,int tamanio){
 }
 
 void mostrarEstadia(EstadiaDiaria* ingresoDeEstadia,int i){
-	printf("%d %12s %24d %16s\n",ingresoDeEstadia[i].id,ingresoDeEstadia[i].nombreDuenio,ingresoDeEstadia[i].telefonoContacto,ingresoDeEstadia[i].fecha);
+	printf("%d %12s %24d %18s\n",ingresoDeEstadia[i].id,ingresoDeEstadia[i].nombreDuenio,ingresoDeEstadia[i].telefonoContacto,ingresoDeEstadia[i].fecha);
 }
 
 

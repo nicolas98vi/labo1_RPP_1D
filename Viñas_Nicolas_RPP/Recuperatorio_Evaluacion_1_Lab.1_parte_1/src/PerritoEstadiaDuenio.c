@@ -56,9 +56,6 @@ int producto_cargarUno(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioEst
 		  }
 	}
 
-
-	//pedirEntero(&estadia[i].telefonoContacto, "Ingrese el telefono del duenio ", "ERROR AL INGRESAR NOMBRE ",39999999,50000000);
-
 	printfSolo("Lista de perros");
 
 	mostrarPerritos(perritos,tamPerro);
@@ -67,7 +64,11 @@ int producto_cargarUno(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioEst
 
 	pedirCadena(dia,"Ingrese el dia ", "ERROR AL INGRESAR DIA", 10);
 	pedirCadena(mes,"Ingrese el mes ", "ERROR AL INGRESAR MES", 10);
+
+	do{
 	pedirCadena(anio,"Ingrese el año ", "ERROR AL INGRESAR AÑO", 10);
+	}while(strcmp(anio,"2022") && strcmp(anio,"2021"));
+
 
 	strcpy(estadia[i].fecha,"");
 	strcat(estadia[i].fecha,dia);
@@ -133,9 +134,13 @@ int menuModificarEstadia(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioE
     			pedirEntero(&estadia[i].idPerro, "Ingrese la ID del perrito: ", "ERROR AL INGRESAR ID\nIngrese la ID del perrito:",6999,7003);
     	    break;
     		case 3:
+
     			pedirCadena(dia,"Ingrese el dia ", "ERROR AL INGRESAR DIA", 10);
     			pedirCadena(mes,"Ingrese el mes ", "ERROR AL INGRESAR MES", 10);
+    			do{
     			pedirCadena(anio,"Ingrese el año ", "ERROR AL INGRESAR AÑO", 10);
+    			}while(strcmp(anio,"2022") && strcmp(anio,"2021"));
+
 
     			strcpy(estadia[i].fecha,"");
     			strcat(estadia[i].fecha,dia);
