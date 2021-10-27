@@ -15,7 +15,7 @@ int id;
 char nombreDuenio[21];
 int telefonoContacto;
 int idPerro;
-int fecha;
+char fecha[30];
 int isEmpty;
 }typedef EstadiaDiaria;
 

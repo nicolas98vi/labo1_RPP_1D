@@ -36,7 +36,9 @@ int producto_cargarUno(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioEst
 {
 	int j;
 	int retorno = -1;
-
+	char dia[10];
+	char mes[10];
+	char anio[10];
 	estadia[i].id = ultimoId + 1;
 
 
@@ -63,10 +65,16 @@ int producto_cargarUno(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioEst
 
 	pedirEntero(&estadia[i].idPerro, "Ingrese la ID del perrito ", "ERROR AL INGRESAR ID",6999,7003);
 
-	pedirEntero(&estadia[i].fecha, "Ingrese la dia ", "ERROR AL INGRESAR FECHA",0,30);
+	pedirCadena(dia,"Ingrese el dia ", "ERROR AL INGRESAR DIA", 10);
+	pedirCadena(mes,"Ingrese el mes ", "ERROR AL INGRESAR MES", 10);
+	pedirCadena(anio,"Ingrese el año ", "ERROR AL INGRESAR AÑO", 10);
 
-
-
+	strcpy(estadia[i].fecha,"");
+	strcat(estadia[i].fecha,dia);
+	strcat(estadia[i].fecha,"/");
+	strcat(estadia[i].fecha,mes);
+	strcat(estadia[i].fecha,"/");
+	strcat(estadia[i].fecha,anio);
 
 	if(!producto_verificarConfirmacion("\nIngrese 's' para confirmar el alta de la estadia: "))
 	{
@@ -81,6 +89,9 @@ int menuModificarEstadia(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioE
 	int retorno;
 	int opciones;
 	retorno=0;
+	char dia[10];
+	char mes[10];
+	char anio[10];
     int i;
 
     if(!producto_verificarConfirmacion("\nIngrese 's' para confirmar el modificar estadia: ")){
@@ -122,7 +133,16 @@ int menuModificarEstadia(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioE
     			pedirEntero(&estadia[i].idPerro, "Ingrese la ID del perrito: ", "ERROR AL INGRESAR ID\nIngrese la ID del perrito:",6999,7003);
     	    break;
     		case 3:
-    			pedirEntero(&estadia[i].fecha, "Ingrese la dia: ", "ERROR AL INGRESAR FECHA\nIngrese la dia:",0,30);
+    			pedirCadena(dia,"Ingrese el dia ", "ERROR AL INGRESAR DIA", 10);
+    			pedirCadena(mes,"Ingrese el mes ", "ERROR AL INGRESAR MES", 10);
+    			pedirCadena(anio,"Ingrese el año ", "ERROR AL INGRESAR AÑO", 10);
+
+    			strcpy(estadia[i].fecha,"");
+    			strcat(estadia[i].fecha,dia);
+    			strcat(estadia[i].fecha,"/");
+    			strcat(estadia[i].fecha,mes);
+    			strcat(estadia[i].fecha,"/");
+    			strcat(estadia[i].fecha,anio);
     	    break;
     		case 4:
     			printfSolo("Esta saliendo del menu para cambiar una estadia...");
@@ -220,7 +240,7 @@ void listadoDePerroEstadia(ePerro* perritos,EstadiaDiaria* estadia,int tamanioIn
 	for(i=0;i<tamPerro;i++){
 				for(j=0;j<tamanioIngreso;j++){
 					if(perritos[i].id==estadia[j].idPerro && estadia[j].isEmpty==LLENO){
-						printf("%10s %25s %19d %23d %21s %24d %20d\n",perritos[i].nombre,perritos[i].raza,perritos[i].edad,estadia[j].id,estadia[j].nombreDuenio,estadia[j].telefonoContacto,estadia[j].fecha);
+						printf("%10s %25s %19d %23d %21s %24d %20s\n",perritos[i].nombre,perritos[i].raza,perritos[i].edad,estadia[j].id,estadia[j].nombreDuenio,estadia[j].telefonoContacto,estadia[j].fecha);
 					}
 				}
      }
