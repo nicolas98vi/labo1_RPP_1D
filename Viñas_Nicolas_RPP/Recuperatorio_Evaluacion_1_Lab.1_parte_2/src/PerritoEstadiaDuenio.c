@@ -252,4 +252,3 @@ void listadoDePerroEstadia(ePerro* perritos,EstadiaDiaria* estadia,int tamanioIn
 }
 
 
-

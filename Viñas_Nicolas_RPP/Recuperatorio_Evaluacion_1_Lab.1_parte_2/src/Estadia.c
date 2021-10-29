@@ -82,3 +82,37 @@ int buscarEstadiaID(EstadiaDiaria* estadia,int tam,int ID){
 	}
 	return listado;
 }
+
+
+void contadorDeAlan(EstadiaDiaria* estadia,int tamanioEstadia){
+	int i;
+	int contador;
+	contador=0;
+	for(i=0;i<tamanioEstadia;i++){
+			if(estadia[i].isEmpty==LLENO && strcmp(estadia[i].nombreDuenio,"Alan")){
+				contador++;
+			}
+	}
+	if(contador!=0){
+		printf("La cantidad de Alan ingresados es %d\n",contador);
+	}else{
+		printf("No hay alan's ingresados \n");
+	}
+}
+
+void contadorDeLucia(EstadiaDiaria* estadia,int tamanioEstadia){
+	int i;
+	int contador;
+	contador=0;
+	for(i=0;i<tamanioEstadia;i++){
+			if(estadia[i].isEmpty==LLENO && strcmp(estadia[i].nombreDuenio,"Lucia")){
+				contador++;
+			}
+	}
+	if(contador!=0){
+		printf("La cantidad de Lucia's ingresados es %d\n",contador);
+	}else{
+		printf("No hay Lucia's ingresados \n");
+	}
+}
+

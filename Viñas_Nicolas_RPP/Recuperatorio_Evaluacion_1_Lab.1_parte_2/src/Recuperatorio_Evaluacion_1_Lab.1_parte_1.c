@@ -23,7 +23,7 @@ int main(void) {
 	setbuf(stdout, NULL);
 	ePerro arrayPerritos[TAMPerrito]={{7000, "lobo", "Sharpei", 2},{7001, "Sheila", "Golden", 12},{7002, "Reina", "Galgo", 13}};
 	EstadiaDiaria arrayEstadia[TAM];
-	Duenio arrayDuenio[tamDuenio]={{3000, "Jose",47373732},{3001, "Luis",47372732},{3002, "Esteban",47322732},{3003, "Josefa",47313232},{3004, "Lusia", 41213232}};
+	Duenio arrayDuenio[tamDuenio]={{3000, "Alan",47373732},{3001, "Luis",47372732},{3002, "Esteban",47322732},{3003, "Josefa",47313232},{3004, "Lucia", 41213232}};
 	int opcion;
 	int cantidadEstadias;
 	cantidadEstadias=1;
@@ -50,7 +50,7 @@ int main(void) {
 	             "6. Promedio de edad de los perros\n"
 	             "7. El perro que tiene más estadías reservadas\n"
 				 "8. Listado de perros con sus estadías diarias reservadas\n"
-				 "9. ALTA DE PERRO:\n"
+				 "9. ALTA DE PERRO\n"
 				 "10.La cantidad de dueños que se llaman Alan\n"
 				 "11.Listado de estadías realizadas por dueñas que se llaman Lucia\n"
 				 "12. Salir\n"
@@ -134,18 +134,32 @@ int main(void) {
 				system("pause");
 				break;
 			case 9:
-				cantidadPerritos++;
-				IDPerrito++;
-				retorno = cargarPerrito(arrayPerritos,TAMPerrito,IDPerrito,cantidadPerritos);
-				mostrar(retorno,"","ERROR AL INGRESAR Perrito","Exito al ingresar perrito!!!");
+
+				if(cantidadPerritos<TAMPerrito){
+					IDPerrito++;
+					retorno = cargarPerrito(arrayPerritos,TAMPerrito,IDPerrito,cantidadPerritos);
+					cantidadPerritos++;
+					mostrar(retorno,"","ERROR AL INGRESAR Perrito","Exito al ingresar perrito!!!");
+				}else{
+					printfSolo("Ya no se puede ingresar perritos");
+				}
+
 				system("pause");
 				break;
 			case 10:
-				printfSolo("Salio del menu!!!\n");
+				if(cantidadEstadias>1){
+					contadorDeAlan(arrayEstadia, cantidadEstadias);
+				}else{
+				    printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 11:
-				printfSolo("Salio del menu!!!\n");
+				if(cantidadEstadias>1){
+					contadorDeLucia(arrayEstadia, cantidadEstadias);
+				}else{
+				    printfSolo("Ingrese una estadia primero");
+				}
 				system("pause");
 				break;
 			case 12:
@@ -153,7 +167,7 @@ int main(void) {
 				system("pause");
 				break;
 		}
-	}while(opcion != 13);
+	}while(opcion != 12);
 
 	return EXIT_SUCCESS;
 }

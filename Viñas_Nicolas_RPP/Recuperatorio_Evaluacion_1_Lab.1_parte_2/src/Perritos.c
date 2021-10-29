@@ -50,7 +50,10 @@ void mostrarPerritos(ePerro* perritos,int tam){
 	int i;
 	printf(" ID         Nombre del perrito           Edad del perrito         Raza del perrito\n");
 	for(i=0;i<tam;i++){
-		mostrarPerrito(perritos, i);
+		if(perritos[i].id>0){
+			mostrarPerrito(perritos, i);
+		}
+
 	}
 }
 
@@ -96,7 +99,7 @@ int cargarPerrito(ePerro* perritos,int tam,int ID,int i)
 
 	perritos[i].id=ID;
 
-	pedirEntero(perritos[i].edad,"Ingresar la edad del perrito","ERROR AL INGRESAR. Ingresar la edad del perrito",0, 13);
+	pedirEntero(&perritos[i].edad,"Ingresar la edad del perrito","ERROR AL INGRESAR. Ingresar la edad del perrito",0, 13);
 
 	pedirCadena(perritos[i].nombre, "Ingrese el nombre del perrito: ","FALLO AL INGRESAR. Ingrese el nombre del perrito: ",21);
 

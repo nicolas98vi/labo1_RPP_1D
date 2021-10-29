@@ -72,5 +72,18 @@ void mostrarEstadias(EstadiaDiaria* ingresoDeTiempo,int tamanio);
 /// @param i
 void mostrarEstadia(EstadiaDiaria* ingresoDeTiempo,int i);
 
+/// @fn void contadorDeAlan(EstadiaDiaria*, int)
+/// @brief busca estadias que tengan un Alan de duenio de perrito y los cuenta
+///
+/// @param estadia
+/// @param tamanioEstadia
+void contadorDeAlan(EstadiaDiaria* estadia,int tamanioEstadia);
+
+/// @fn void contadorDeLucia(EstadiaDiaria*, int)
+/// @brief busca estadias que tengan un L de duenio de perrito y los cuenta
+///
+/// @param estadia
+/// @param tamanioEstadia
+void contadorDeLucia(EstadiaDiaria* estadia,int tamanioEstadia);
 
 #endif /* ESTADIA_H_ */

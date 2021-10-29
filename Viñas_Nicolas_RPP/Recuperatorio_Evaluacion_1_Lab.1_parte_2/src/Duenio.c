@@ -3,7 +3,7 @@
 void mostrarDuenios(Duenio* DuenioListado,int tam){
 	int i;
 	printf(" ID       Nombre del Dueño           Fecha\n");
-	for(i=1;i<tam;i++){
+	for(i=0;i<tam;i++){
 		mostrarDuenio(DuenioListado, i);
 	}
 }

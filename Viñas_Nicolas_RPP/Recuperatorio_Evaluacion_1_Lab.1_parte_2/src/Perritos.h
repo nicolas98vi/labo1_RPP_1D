@@ -57,7 +57,14 @@ void promedioEdadPerritos(ePerro* perritos,int tam);
 /// @return
 int buscarPerritoID(ePerro* perritos,int tam,int ID);
 
-
+/// @fn int cargarPerrito(ePerro*, int, int, int)
+/// @brief D a de alta un perro.
+///
+/// @param perritos
+/// @param tam
+/// @param ID
+/// @param i
+/// @returndevuelve un 0 si hay un error y 1 si se pudo cargar.
 int cargarPerrito(ePerro* perritos,int tam,int ID,int i);
 
 #endif /* PERRITOS_H_ */

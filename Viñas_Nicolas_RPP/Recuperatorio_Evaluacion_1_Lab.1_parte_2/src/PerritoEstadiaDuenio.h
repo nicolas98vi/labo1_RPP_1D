@@ -55,12 +55,6 @@ int menuModificarEstadia(ePerro* perritos,EstadiaDiaria* estadia,Duenio* DuenioE
 
 
 
-
-
-
-
-
-
 /// @fn void subMenuModificar(ePerro*, EstadiaDiaria*, Duenio*, int, int, int)
 /// @brief Modifica los datos dentro de las estructuras
 ///
@@ -90,6 +84,8 @@ void mayorEstadiaDePerro(ePerro* perritos,EstadiaDiaria* estadia,int tamanioIngr
 /// @param tamanioIngreso
 /// @param tamPerro
 void listadoDePerroEstadia(ePerro* perritos,EstadiaDiaria* estadia,int tamanioIngreso, int tamPerro);
+
+
 
 
 #endif /* PERRITOESTADIADUENIO_H_ */
